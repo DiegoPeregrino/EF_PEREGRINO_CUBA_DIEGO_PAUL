@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Ciudades</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body><header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">VivaAir.com</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="carrito.html">Carrito</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ciudad_form.html">Formulario Ciudad</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ciudad_list.html">Listado Ciudad</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="venta_form.html">Formulario Venta</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <h2>Registro de Ciudades</h2>
+        <form action="/ciudades" method="post" th:object="${ciudad}" class="mt-4">
+            <div class="form-group">
+                <label for="codigoPostal">Código Postal:</label>
+                <input type="text" class="form-control" id="codigoPostal" name="codigoPostal" th:field="*{codigoPostal}">
+            </div>
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" th:field="*{nombre}">
+            </div>
+            <button type="submit" class="btn btn-primary">Crear Ciudad</button>
+        </form>
+    </div>
+</body>
+</html>

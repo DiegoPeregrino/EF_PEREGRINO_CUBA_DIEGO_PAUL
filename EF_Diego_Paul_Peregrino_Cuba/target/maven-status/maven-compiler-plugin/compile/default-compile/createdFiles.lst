@@ -1,0 +1,8 @@
+org\cibertec\edu\pe\EfDiegoPaulPeregrinoCubaApplication.class
+org\cibertec\edu\pe\model\Venta.class
+org\cibertec\edu\pe\model\Ciudad.class
+org\cibertec\edu\pe\controller\CarritoController.class
+org\cibertec\edu\pe\repository\ICiudadRepository.class
+org\cibertec\edu\pe\model\DetalleVenta.class
+org\cibertec\edu\pe\repository\IDetalleVentaRepository.class
+org\cibertec\edu\pe\repository\IVentaRepository.class

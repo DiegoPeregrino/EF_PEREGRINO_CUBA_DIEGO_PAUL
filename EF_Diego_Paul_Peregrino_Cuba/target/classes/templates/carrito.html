@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compra - VivaAir.com</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body><header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">VivaAir.com</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="carrito.html">Carrito</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ciudad_form.html">Formulario Ciudad</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ciudad_list.html">Listado Ciudad</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="venta_form.html">Formulario Venta</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-12 text-center">
+                <h2>vivaair.com</h2>
+                <h3>CARRITO DE COMPRA</h3>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Ciudad Origen</th>
+                            <th>Ciudad Destino</th>
+                            <th>Fecha Salida</th>
+                            <th>Fecha Retorno</th>
+                            <th>Nombre Comprador</th>
+                            <th>Cantidad</th>
+                            <th>Sub-Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="detalle : ${carrito}">
+                            <td th:text="${detalle.ciudadOrigen.nombre}"></td>
+                            <td th:text="${detalle.ciudadDestino.nombre}"></td>
+                            <td th:text="${#dates.format(detalle.fechaViaje, 'dd/MM/yyyy')}"></td>
+                            <td th:text="${#dates.format(detalle.fechaRetorno, 'dd/MM/yyyy')}"></td>
+                            <td th:text="${detalle.nombreComprador}"></td>
+                            <td th:text="${detalle.cantidad}"></td>
+                            <td th:text="${detalle.subTotal}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12 text-center"> <
+                <form action="#" th:action="@{/comprar}" method="post">
+                    <button type="submit" class="btn btn-success">Comprar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
