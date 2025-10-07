@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinos Disponibles - VivaAir</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/vivaair-styles.css}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-plane me-2"></i>VivaAir
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="fas fa-home me-1"></i>Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/venta/form">
+                            <i class="fas fa-ticket-alt me-1"></i>Reservar Vuelo
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/carrito">
+                            <i class="fas fa-shopping-cart me-1"></i>Carrito
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/ciudades">
+                            <i class="fas fa-map-marker-alt me-1"></i>Destinos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="cart-header">
+        <div class="container text-center">
+            <h1><i class="fas fa-map-marked-alt me-3"></i>Nuestros Destinos</h1>
+            <p class="lead">Descubre todos los lugares a los que puedes volar con VivaAir</p>
+        </div>
+    </section>
+
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="table-section">
+                    <div class="table-header">
+                        <h4><i class="fas fa-globe me-2"></i>Ciudades Disponibles</h4>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col"><i class="fas fa-hashtag me-2"></i>Código</th>
+                                    <th scope="col"><i class="fas fa-city me-2"></i>Ciudad</th>
+                                    <th scope="col"><i class="fas fa-cog me-2"></i>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="ciudad : ${ciudades}">
+                                    <td>
+                                        <span class="badge bg-primary" th:text="${ciudad.codigoPostal}">LIM</span>
+                                    </td>
+                                    <td>
+                                        <i class="fas fa-map-marker-alt text-success me-2"></i>
+                                        <span th:text="${ciudad.nombre}">Lima</span>
+                                    </td>
+                                    <td>
+                                        <a href="/venta/form" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-plane me-1"></i>Volar aquí
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <a href="/venta/form" class="btn btn-custom btn-lg">
+                        <i class="fas fa-ticket-alt me-2"></i>Reservar Vuelo
+                    </a>
+                    <a href="/ciudad/form" class="btn btn-outline-secondary btn-lg ms-2">
+                        <i class="fas fa-plus me-2"></i>Agregar Ciudad
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{/js/vivaair-scripts.js}"></script>
+</body>
+</html>

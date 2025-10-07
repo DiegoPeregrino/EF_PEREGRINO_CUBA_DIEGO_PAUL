@@ -1,0 +1,152 @@
+{
+    "info": {
+        "_postman_id": "vivaair-api-collection-v3",
+        "name": "VivaAir - API v3.0",
+        "description": "Sistema de Ventas de Boletos Aéreos - Diego Paul Peregrino - CIBERTEC 2025",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "🏙️ Ciudades",
+            "item": [
+                {
+                    "name": "GET Todas",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{base_url}}/api/ciudades"
+                    }
+                },
+                {
+                    "name": "GET por ID",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{base_url}}/api/ciudades/{{ciudad_id}}"
+                    }
+                },
+                {
+                    "name": "POST Crear",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"codigoPostal\": \"TEST\",\n    \"nombre\": \"Ciudad Test\"\n}"
+                        },
+                        "url": "{{base_url}}/api/ciudades"
+                    }
+                },
+                {
+                    "name": "PUT Actualizar",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"codigoPostal\": \"UPD\",\n    \"nombre\": \"Ciudad Actualizada\"\n}"
+                        },
+                        "url": "{{base_url}}/api/ciudades/{{ciudad_id}}"
+                    }
+                },
+                {
+                    "name": "DELETE Eliminar",
+                    "request": {
+                        "method": "DELETE",
+                        "url": "{{base_url}}/api/ciudades/{{ciudad_id}}"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "🛒 Carrito",
+            "item": [
+                {
+                    "name": "GET Items",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{base_url}}/carrito/api/items"
+                    }
+                },
+                {
+                    "name": "POST Agregar",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"ciudadOrigenId\": 1,\n    \"ciudadDestinoId\": 2,\n    \"fechaViaje\": \"2025-03-15\",\n    \"cantidad\": 2,\n    \"nombreComprador\": \"Test User\"\n}"
+                        },
+                        "url": "{{base_url}}/carrito/api/agregar"
+                    }
+                },
+                {
+                    "name": "GET Total",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{base_url}}/carrito/api/total"
+                    }
+                },
+                {
+                    "name": "DELETE Limpiar",
+                    "request": {
+                        "method": "DELETE",
+                        "url": "{{base_url}}/carrito/api/limpiar"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "💰 Ventas",
+            "item": [
+                {
+                    "name": "GET Todas",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{base_url}}/api/ventas"
+                    }
+                },
+                {
+                    "name": "POST Crear",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"nombreComprador\": \"Test Buyer\",\n    \"total\": 250.00\n}"
+                        },
+                        "url": "{{base_url}}/api/ventas"
+                    }
+                }
+            ]
+        }
+    ],
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "http://localhost:8100"
+        },
+        {
+            "key": "ciudad_id",
+            "value": "1"
+        }
+    ]
+}

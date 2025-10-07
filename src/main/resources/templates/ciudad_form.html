@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Ciudad - VivaAir</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/vivaair-styles.css}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-plane me-2"></i>VivaAir
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="fas fa-home me-1"></i>Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/venta/form">
+                            <i class="fas fa-ticket-alt me-1"></i>Reservar Vuelo
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/carrito">
+                            <i class="fas fa-shopping-cart me-1"></i>Carrito
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ciudades">
+                            <i class="fas fa-map-marker-alt me-1"></i>Destinos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Formulario Section -->
+    <section class="form-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="card form-card">
+                        <div class="form-header">
+                            <h2><i class="fas fa-map-marked-alt me-2"></i>Agregar Nueva Ciudad</h2>
+                            <p class="mb-0">Expandir nuestros destinos</p>
+                        </div>
+                        <div class="card-body p-5">
+                            <form action="/ciudades" method="post" th:object="${ciudad}">
+                                <div class="mb-4">
+                                    <label class="form-label">
+                                        <i class="fas fa-hashtag text-primary me-2"></i>Código Postal
+                                    </label>
+                                    <input type="text" class="form-control" th:field="*{codigoPostal}" 
+                                           placeholder="Ej: LIM, CUZ, AQP..." maxlength="5" required>
+                                    <small class="text-muted">Código de 3 letras para identificar la ciudad</small>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="form-label">
+                                        <i class="fas fa-city text-success me-2"></i>Nombre de la Ciudad
+                                    </label>
+                                    <input type="text" class="form-control" th:field="*{nombre}" 
+                                           placeholder="Ej: Lima, Cusco, Arequipa..." required>
+                                    <small class="text-muted">Nombre completo de la ciudad</small>
+                                </div>
+
+                                <div class="row mt-4">
+                                    <div class="col-md-6 mb-2">
+                                        <button type="submit" class="btn btn-custom btn-lg w-100">
+                                            <i class="fas fa-plus-circle me-2"></i>Crear Ciudad
+                                        </button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <a href="/ciudades" class="btn btn-outline-secondary btn-lg w-100">
+                                            <i class="fas fa-list me-2"></i>Ver Ciudades
+                                        </a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{/js/vivaair-scripts.js}"></script>
+</body>
+</html>

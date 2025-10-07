@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VivaAir - Tu Aerolínea de Confianza</title>
+    <meta name="description" content="VivaAir - La mejor aerolínea para tus viajes. Reserva vuelos al mejor precio con la máxima seguridad.">
+    <meta name="keywords" content="vuelos, aerolínea, viajes, reservas, VivaAir">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/vivaair-styles.css}">
+    <link rel="icon" type="image/png" th:href="@{/images/logo.png}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-plane me-2"></i>VivaAir
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">
+                            <i class="fas fa-home me-1"></i>Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/venta/form">
+                            <i class="fas fa-ticket-alt me-1"></i>Reservar Vuelo
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/carrito">
+                            <i class="fas fa-shopping-cart me-1"></i>Carrito
+                            <span class="badge bg-danger ms-1 cart-count" style="display: none;">0</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/ciudades">
+                            <i class="fas fa-map-marker-alt me-1"></i>Destinos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 fade-in-up">
+                    <h1 class="display-4 fw-bold mb-4">Vuela con VivaAir</h1>
+                    <p class="lead mb-4">Descubre el mundo con nosotros. Los mejores precios, el mejor servicio y la máxima seguridad en cada vuelo.</p>
+                    <a href="/venta/form" class="btn btn-custom btn-lg pulse-animation">
+                        <i class="fas fa-search me-2"></i>Buscar Vuelos
+                    </a>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <i class="fas fa-plane-departure animate-on-scroll" style="font-size: 8rem; opacity: 0.8;"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col animate-on-scroll">
+                    <h2 class="fw-bold text-gradient">¿Por qué elegir VivaAir?</h2>
+                    <p class="text-muted">Ofrecemos la mejor experiencia de viaje</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card feature-card h-100 text-center p-4 animate-on-scroll">
+                        <div class="card-body">
+                            <i class="fas fa-dollar-sign text-primary feature-icon"></i>
+                            <h5 class="card-title">Mejores Precios</h5>
+                            <p class="card-text">Garantizamos los precios más competitivos del mercado con ofertas exclusivas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card h-100 text-center p-4 animate-on-scroll">
+                        <div class="card-body">
+                            <i class="fas fa-shield-alt text-success feature-icon"></i>
+                            <h5 class="card-title">Máxima Seguridad</h5>
+                            <p class="card-text">Tu seguridad es nuestra prioridad. Cumplimos con todos los estándares internacionales.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card h-100 text-center p-4 animate-on-scroll">
+                        <div class="card-body">
+                            <i class="fas fa-clock text-warning feature-icon"></i>
+                            <h5 class="card-title">Puntualidad</h5>
+                            <p class="card-text">Más del 95% de nuestros vuelos llegan a tiempo. Respetamos tu agenda.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-3 animate-on-scroll">
+                    <div class="stat-number text-primary">+500</div>
+                    <p class="text-muted">Destinos</p>
+                </div>
+                <div class="col-md-3 animate-on-scroll">
+                    <div class="stat-number text-success">+1M</div>
+                    <p class="text-muted">Pasajeros Anuales</p>
+                </div>
+                <div class="col-md-3 animate-on-scroll">
+                    <div class="stat-number text-warning">95%</div>
+                    <p class="text-muted">Puntualidad</p>
+                </div>
+                <div class="col-md-3 animate-on-scroll">
+                    <div class="stat-number text-info">4.8★</div>
+                    <p class="text-muted">Calificación</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-plane me-2"></i>VivaAir</h5>
+                    <p class="text-muted">Tu aerolínea de confianza desde 2025</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <p class="text-muted">Desarrollado por Diego Paul Peregrino - CIBERTEC</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{/js/vivaair-scripts.js}"></script>
+</body>
+</html>
